@@ -25,7 +25,7 @@ post '/arrived_safely' do
   @client.messages.create(
     from: '+12406502723',
     to: '+13013258434',
-    body: "It's working"
+    body: "Hi #{name}, it's Ariel. I'm sending you a text from #{location}. I just wanted to let you know I got in safe and sound :) Hope you're doing well! XOXO"
   )
 	flash[:success] = 'it worked'
 end
