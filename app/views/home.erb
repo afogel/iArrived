@@ -1,3 +1,17 @@
+<h3>Sending a text to:</h3>
+<ul>
+  <% @contact_names.each do |name| %>
+    <li>
+      <%= name %>
+    </li>
+  <% end %>
+</ul>
 <form action='/arrived_safely' method='POST'>
-  <button style="margin: 80px auto; display: block; width: 50%; height: 50%; font-size: 32px">I arrived safely!</button>
+  <div style='display: block; margin: 80px auto'>
+    <div style='display: block; margin: 0 auto'>
+      <label for='location' style='font-size: 24px'>Location:</label>
+      <input name='location' id='location' style='height:24px'>
+    </div>
+    <button style=" width: 50%; height: 50%; font-size: 32px">I arrived safely!</button>
+  </div>
 </form>
