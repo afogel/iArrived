@@ -1,3 +1,5 @@
 require 'sinatra'
-require 'thin'
-require 'twilio-ruby'
+
+get '/' do
+  "Hello World"
+end
