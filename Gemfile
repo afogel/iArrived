@@ -6,4 +6,4 @@ gem 'geocoder'
 gem 'dotenv'
 gem 'rack-flash3'
 
-gem 'twilio-ruby', '~> 4.11.1'
+gem 'twilio-ruby', '~> 5.0.0.rc5'
