@@ -18,14 +18,17 @@ use Rack::Flash
 get '/' do
 	erb :home
 end
-
 post '/arrived_safely' do
   @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
-#  @client = Twilio::REST::Client.new(ENV['TWILIO_API_KEY'], ENV['TWILIO_SECRET'], ENV['TWILIO_ACCOUNT_SID'])
-  @client.messages.create(
-    from: '+12406502723',
-    to: '+13013258434',
-    body: "Hi #{name}, it's Ariel. I'm sending you a text from #{location}. I just wanted to let you know I got in safe and sound :) Hope you're doing well! XOXO"
-  )
+  p ENV['CONTACTS_ARRAY']
+  contacts = Hash[ENV['CONTACTS_ARRAY'].map {|key, value| [key, value]}]
+  p contacts
+  #@client.messages.create(
+  #  from: '+12406502723',
+  #  to: "+1#{number}",
+  #  body: "Hi #{name}, it's Ariel. I'm sending you a text from #{location}. I just wanted to let you know I got in safe and sound :) Hope you're doing well! XOXO"
+  #)
 	flash[:success] = 'it worked'
+rescue => e
+  flash[:error] = e.message
 end
