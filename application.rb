@@ -1,12 +1,13 @@
 require 'sinatra'
 
+APP_ROOT = Pathname.new(File.expand_path('../../iArrived', __FILE__))
 configure do
   set :root, APP_ROOT.to_path
   set :views, File.join(Sinatra::Application.root, "app", "views")
 end
 
 get '/' do
-  "<button style='margin: 80px auto; display: block; width: 50%; height: 50%; font-size: 32px'>I arrived safely!</button>" 
+  erb :home
 end
 
 post '/arrived_safely' do
